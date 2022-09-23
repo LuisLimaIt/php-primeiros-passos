@@ -2,5 +2,8 @@
 
 $idades = [21, 23, 19, 21, 30, 25];
 
+$idades[] = 789;
 
-echo "$idades[2]";
+foreach($idades as $idade) {
+    echo $idade . PHP_EOL;
+}
