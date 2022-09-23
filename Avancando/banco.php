@@ -3,7 +3,7 @@
 function sacar(array $contaCorrente, float $valorDoSaque): array 
 {
     if($valorDoSaque > $contaCorrente['saldo']) {
-        exibeMensagem("[" . $contaCorrente['titular'] . "] = SALDO INSUFICIENTE");
+        exibeMensagem("[{$contaCorrente['titular']}] = SALDO INSUFICIENTE");
     } else {
         $contaCorrente['saldo'] -=  $valorDoSaque;
     }
@@ -38,5 +38,5 @@ $contasCorrentes['999.333.555-66'] = depositar($contasCorrentes['999.333.555-66'
 
 
 foreach ($contasCorrentes as $cpf => $conta) {
-    exibeMensagem($conta['titular'] . " = CPF: $cpf Saldo: " . $conta['saldo']);
+    exibeMensagem("{$conta['titular']}  = CPF: $cpf Saldo: {$conta['saldo']}");
 };
