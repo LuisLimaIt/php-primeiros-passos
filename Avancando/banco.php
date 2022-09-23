@@ -1,6 +1,7 @@
 <?php
 
-function sacar($contaCorrente, $valorDoSaque) {
+function sacar(array $contaCorrente, float $valorDoSaque): array 
+{
     if($valorDoSaque > $contaCorrente['saldo']) {
         exibeMensagem("[" . $contaCorrente['titular'] . "] = SALDO INSUFICIENTE");
     } else {
@@ -9,7 +10,18 @@ function sacar($contaCorrente, $valorDoSaque) {
     return $contaCorrente;
 };
 
-function exibeMensagem($mensagem) {
+function depositar(array $contaCorrente, float $valorDoDeposito): array 
+{
+    if ($valorDoDeposito > 0) {
+        $contaCorrente['saldo'] +=  $valorDoDeposito;
+    } else {
+        echo "O valor do depósito não pode ser negativo!" . PHP_EOL;
+    }
+    return $contaCorrente;
+};
+
+function exibeMensagem(string $mensagem) 
+{
     echo $mensagem . PHP_EOL;
 };
 
@@ -21,6 +33,8 @@ $contasCorrentes = [
 
 $contasCorrentes['444.222.555-88'] = sacar($contasCorrentes['444.222.555-88'], 6180);
 $contasCorrentes['999.444.777-33'] = sacar($contasCorrentes['999.444.777-33'], 9180);
+
+$contasCorrentes['999.333.555-66'] = depositar($contasCorrentes['999.333.555-66'], 1000);
 
 
 foreach ($contasCorrentes as $cpf => $conta) {
