@@ -13,6 +13,7 @@ $contasCorrentes['999.444.777-33'] = sacar($contasCorrentes['999.444.777-33'], 9
 
 $contasCorrentes['999.333.555-66'] = depositar($contasCorrentes['999.333.555-66'], 1000);
 
+titularComLetrasMaiusculas($contasCorrentes['999.333.555-66']);
 
 foreach ($contasCorrentes as $cpf => $conta) {
     exibeMensagem("{$conta['titular']}  = CPF: $cpf Saldo: {$conta['saldo']}");

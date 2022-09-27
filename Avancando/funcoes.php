@@ -24,3 +24,7 @@ function exibeMensagem(string $mensagem)
 {
     echo $mensagem . PHP_EOL;
 };
+
+function titularComLetrasMaiusculas(array &$contaCorrente) {
+    $contaCorrente['titular'] = mb_strtoupper($contaCorrente['titular']);
+}
